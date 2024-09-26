@@ -1,0 +1,11 @@
+.ReactFlipCard__container,
+.ReactFlipCard__flipCard,
+.ReactFlipCard__flipCardFront,
+.ReactFlipCard__flipCardBack{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    height: fit-content !important;
+    margin: 10px 0px;
+}
