@@ -1,0 +1,3 @@
+[build]
+command = "npx nx build frontEnd-challenge"
+publish = "dist/apps/frontEnd-challenge"

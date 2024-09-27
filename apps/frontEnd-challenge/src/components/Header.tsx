@@ -9,6 +9,7 @@ const Header = () => {
     const navigate = useNavigate()
     const signOutHandler = () => {
         localStorage.removeItem('frontend_challenge_token')
+        localStorage.removeItem('frontend_challenge_uid')
         navigate('/sign-in')
     }
   return (
