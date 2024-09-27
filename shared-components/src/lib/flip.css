@@ -9,3 +9,13 @@
     height: fit-content !important;
     margin: 10px 0px;
 }
+.ReactFlipCard__flipCardFront,
+.ReactFlipCard__flipCardBack{
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.ReactFlipCard__rotateY180Deg{
+    background-color: white;
+}
