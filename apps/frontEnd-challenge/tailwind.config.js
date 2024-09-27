@@ -16,11 +16,14 @@ module.exports = {
     extend: {
       colors: {
         Primary: '#7328F6', // Custom color
-        greyBorder:'#cccccc'
+        greyBorder:'#cccccc',
       },
       boxShadow:{
         'mainShadow':"rgba(115, 40, 246, 0.24) 0px 3px 8px;"
-      }
+      },
+      backgroundImage: {
+        'checkBox': 'radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(115,40,246,1) 100%)',
+      },
     },
   },
   plugins: [],

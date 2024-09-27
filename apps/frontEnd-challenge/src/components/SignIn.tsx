@@ -4,45 +4,47 @@ import { FcGoogle } from "react-icons/fc";
 import { signInUserWithEmailAndPassword, signInWithGooglePopup } from '../utils/firebase';
 import { useState } from 'react';
 import notif from '../utils/notif';
+import { userState } from '../recoil';
+import { useSetRecoilState } from 'recoil';
 
 interface SignInProps {
   handleFlip: () => void;
 }
-
 const SignIn: React.FC<SignInProps> = ({ handleFlip }) => {
-  const [state,setState] = useState({email:'',password:''})
+  const initialState = {email:'',password:''}
+  const [state,setState] = useState(initialState)
   const [loading,setLoading] = useState({emailLoading:false,googleLoading:false})
   const navigate = useNavigate()
-
+  const setUser = useSetRecoilState(userState)
   const onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     const {name,value} = event.target
     setState({...state,[name]:value})
   }
-
   const flipHandler = (e:any) => {
+    setState(initialState)
     e.preventDefault()
     handleFlip()
   }
-
   const logGoogleUser = async () => {
     try {
       const res:any = await signInWithGooglePopup();
       localStorage.setItem('frontend_challenge_token',res?.user?.accessToken)
-      console.log(res);
+      localStorage.setItem('frontend_challenge_uid',res?.user?.uid)
+      setUser(res?.user)
       navigate('/')
     } catch (error:any) {
       console.log(error);
       notif(error.message,'danger')
     }
   };
-
   const submitHandler = async (event: React.FormEvent<HTMLFormElement>)=>{
     event.preventDefault()
     setLoading({...loading,emailLoading:true})
     try {
       const res:any = await signInUserWithEmailAndPassword(state.email,state.password)
-      console.log(res);
+      setUser(res?.user)
       localStorage.setItem('frontend_challenge_token',res?.user?.accessToken)
+      localStorage.setItem('frontend_challenge_uid',res?.user?.uid)
       navigate('/')
     } catch (error:any) {
       console.error(error)
@@ -51,7 +53,6 @@ const SignIn: React.FC<SignInProps> = ({ handleFlip }) => {
       setLoading({...loading,emailLoading:false})
     }
   }
-
   return (
       <form onSubmit={submitHandler} className='w-full max-w-[370px] border rounded-lg flex flex-col justify-between p-3 mx-4 shadow-mainShadow'>
         <section>

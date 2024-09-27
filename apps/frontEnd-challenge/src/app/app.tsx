@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import HomePage from '../pages/HomePage';
 import SignInPage from '../pages/SignInPage';
+import Layout from '../components/Layout';
 
 
 const isLoggedIn = () => {
@@ -9,7 +10,7 @@ const isLoggedIn = () => {
 };
 
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
-  return isLoggedIn() ? children : <Navigate to="/sign-in" />;
+  return isLoggedIn() ? <Layout>{children}</Layout> : <Navigate to="/sign-in" />;
 };
 
 const App = () => {

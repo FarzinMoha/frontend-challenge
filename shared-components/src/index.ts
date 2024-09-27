@@ -5,4 +5,6 @@ export * from './lib/Title';
 export * from './lib/PageTitle';
 export * from './lib/Loading';
 export * from './lib/FlipDiv';
+export * from './lib/Avatar';
+export * from './lib/Divider';
 

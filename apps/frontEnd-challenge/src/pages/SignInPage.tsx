@@ -5,11 +5,9 @@ import SignUp from '../components/SignUp';
 
 const SignInPage = () => {
   const flipDivRef = useRef<{ toggleFlip: () => void }>(null);
-
   const handleFlip = () => {
     flipDivRef.current?.toggleFlip();
   };
-
   return (
     <main className='w-full min-h-screen flex justify-center items-center'>
       <FlipDiv
