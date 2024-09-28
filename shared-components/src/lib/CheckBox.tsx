@@ -19,10 +19,10 @@ export const CheckBox: React.FC<CheckBoxProps> = ({
         {label && !rightLabel && <span className={` mr-2 ${labelClass}`}>{label}</span>}
         <input
           type="checkbox" 
-          className={` h-7 w-7 sr-only peer border-2 border-Primary rounded accent-Primary cursor-pointer  ${checkBoxClass}`}
+          className={` h-7 w-7 min-w-7 max-w-7 minh-h-7 max-h-7 sr-only peer border-2 border-Primary rounded accent-Primary cursor-pointer  ${checkBoxClass}`}
           {...props}
           />
-        <div className="w-7 h-7 bg-white border-2 border-Primary rounded-full peer-checked:bg-checkBox peer-checked:border-Primary peer-checked:before:content-[''] peer-checked:before:absolute peer-checked:before:top-1 peer-checked:before:left-1 peer-checked:before:w-2 peer-checked:before:h-0 peer-checked:before:bg-white peer-checked:before:rounded-full"></div>
+        <div className="w-7 h-7 min-w-7 max-w-7 minh-h-7 max-h-7 bg-white border-2 border-Primary rounded-full peer-checked:bg-checkBox peer-checked:border-Primary peer-checked:before:content-[''] peer-checked:before:absolute peer-checked:before:top-1 peer-checked:before:left-1 peer-checked:before:w-2 peer-checked:before:h-0 peer-checked:before:bg-white peer-checked:before:rounded-full"></div>
           {label && rightLabel && <span className={` mr-2 ${labelClass}`}>{label}</span>}
     </label>
   );
